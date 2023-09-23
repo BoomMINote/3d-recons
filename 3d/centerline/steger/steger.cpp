@@ -1,7 +1,7 @@
 #include <iostream>
-#include <opencv2\core\core.hpp>
-#include <opencv2\highgui\highgui.hpp>
-#include <opencv2\imgproc\imgproc.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 #include <fstream>
 #include <ctime>
 
@@ -23,8 +23,6 @@ private:
 	double  sigma_;
 	float thresh_ToZero_;
 };
-
-
 
 Steger::Steger(const Mat img, double sigma, float thresh, Size  kernel_size) :
 	sigma_(sigma),
@@ -91,39 +89,40 @@ void Steger::AcquireScalarVec(vector<Scalar> &vec) {
 int main() {
 
 
-	cv::Mat srcImg = imread("F:/2_光学测量/11_线结构光/2_光条中心提取测试版/test.jpg",0);
-	cv::Mat dstImg = imread("F:/2_光学测量/11_线结构光/2_光条中心提取测试版/test.jpg");
-
-	Size kernel(17, 17);
+	cv::Mat srcImg = imread("../test1.png",0);// original img
+	cv::Mat dstImg = imread("../test1.png");// the img that we draw circle on
+    cout<<srcImg.size()<<endl;
+//	Size kernel(17, 17);
+    Size kernel(17, 17);
 
 	cv::Mat bwImg;
 	double thresh = threshold(srcImg, bwImg, 0, 255, CV_THRESH_OTSU);
-
-	Steger s(srcImg, 3, 20, kernel);
+    cout<<thresh<<endl;
+    cv::namedWindow("tt", 0);
+    cv::imshow("tt", srcImg);
+    cv::waitKey(0);
+//	Steger s(srcImg, 3, 20, kernel);
+    Steger s(srcImg, 3, 190, kernel);
 	std::vector<Scalar> vec;
 	s.GetCenterPoint(vec);
 
 	fstream lightdata;
-	lightdata.open("F:/2_光学测量/11_线结构光/2_光条中心提取测试版/light.txt", fstream::out);
+	lightdata.open("./light.txt", fstream::out);
 
 	for (std::vector<Scalar>::iterator it = vec.begin(); it != vec.end(); ++it) {
 		
 		lightdata << it->val[0] << " " << it->val[1] << endl;;
 
 
-		cv::circle(dstImg, cv::Point(it->val[0], it->val[1]), 1, cv::Scalar(0, 255, 0), -1, 8);
+		cv::circle(dstImg, cv::Point(it->val[0], it->val[1]), 1, cv::Scalar(255, 0, 255), 1, 8);
 	}
-
+    imwrite("../output.jpg", dstImg);
 	cv::namedWindow("test", 0);
 
 	cv::imshow("test", dstImg);
 
 	cv::waitKey(0);
-	
+
 
 	return 0;
-
-
-
-
 }
