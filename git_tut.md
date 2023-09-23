@@ -9,3 +9,7 @@
 9.git commit -m "commit info"
 10.git push <local-repo-name>  <remote-repo-name>
 11.git pull <local-repo-name>  <remote-repo-name>
+12.git branch -M main == git branch -M master main
+13.git branch v2 
+14.git branch v3
+15.git branch master
