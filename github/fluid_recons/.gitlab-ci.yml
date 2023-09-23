@@ -1,0 +1,22 @@
+image: python:3.8
+
+before_script:
+  - pip install .
+  - PYTHONPATH=examples
+
+test:
+  stage: test
+  script:
+    - pip install pytest pytest-cov
+    - pytest --cov=fp23dpy
+  only:
+    - merge_requests
+
+deploy:
+  stage: deploy
+  script:
+    - pip install twine
+    - python3 setup.py sdist
+    - twine upload dist/*
+  only:
+    - master

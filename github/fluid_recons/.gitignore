@@ -1,0 +1,6 @@
+dist
+__pycache__
+fp23dpy.egg-info
+.coverage
+*.npy
+venv*

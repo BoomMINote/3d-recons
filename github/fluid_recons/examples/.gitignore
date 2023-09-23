@@ -1,0 +1,6 @@
+__pycache__
+*.txt
+*.obj
+*.mtl
+*.png
+*.glb
