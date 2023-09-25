@@ -511,3 +511,104 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindCUDA.cmake:1049 (find_package)"
+      - "CMakeLists.txt:6 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-A800T7"
+      binary: "/home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-A800T7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "-fPIC"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: /home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-A800T7
+        
+        Run Build Command(s):/snap/clion/250/bin/ninja/linux/x64/ninja -v cmTC_f21c2 && [1/2] /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIC -o CMakeFiles/cmTC_f21c2.dir/src.c.o -c /home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-A800T7/src.c
+        [2/2] : && /usr/bin/cc -fPIC  CMakeFiles/cmTC_f21c2.dir/src.c.o -o cmTC_f21c2   && :
+        \x1b[31mFAILED: \x1b[0mcmTC_f21c2 
+        : && /usr/bin/cc -fPIC  CMakeFiles/cmTC_f21c2.dir/src.c.o -o cmTC_f21c2   && :
+        CMakeFiles/cmTC_f21c2.dir/src.c.o: In function `main':
+        src.c:(.text+0x3e): undefined reference to `pthread_create'
+        src.c:(.text+0x4a): undefined reference to `pthread_detach'
+        src.c:(.text+0x56): undefined reference to `pthread_cancel'
+        src.c:(.text+0x67): undefined reference to `pthread_join'
+        src.c:(.text+0x7b): undefined reference to `pthread_atfork'
+        collect2: error: ld returned 1 exit status
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindCUDA.cmake:1049 (find_package)"
+      - "CMakeLists.txt:6 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "/home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zEIQKW"
+      binary: "/home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zEIQKW"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "-fPIC"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: /home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zEIQKW
+        
+        Run Build Command(s):/snap/clion/250/bin/ninja/linux/x64/ninja -v cmTC_a2857 && [1/2] /usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_a2857.dir/CheckFunctionExists.c.o -c /home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-zEIQKW/CheckFunctionExists.c
+        [2/2] : && /usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_a2857.dir/CheckFunctionExists.c.o -o cmTC_a2857  -lpthreads && :
+        \x1b[31mFAILED: \x1b[0mcmTC_a2857 
+        : && /usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_a2857.dir/CheckFunctionExists.c.o -o cmTC_a2857  -lpthreads && :
+        /usr/bin/ld: cannot find -lpthreads
+        collect2: error: ld returned 1 exit status
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindCUDA.cmake:1049 (find_package)"
+      - "CMakeLists.txt:6 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "/home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gFD0LL"
+      binary: "/home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gFD0LL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "-fPIC"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: /home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gFD0LL
+        
+        Run Build Command(s):/snap/clion/250/bin/ninja/linux/x64/ninja -v cmTC_c3058 && [1/2] /usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_c3058.dir/CheckFunctionExists.c.o -c /home/boom/Desktop/git/3d-recons/3d/centerline/steger/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-gFD0LL/CheckFunctionExists.c
+        [2/2] : && /usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create  CMakeFiles/cmTC_c3058.dir/CheckFunctionExists.c.o -o cmTC_c3058  -lpthread && :
+        
+      exitCode: 0
+...

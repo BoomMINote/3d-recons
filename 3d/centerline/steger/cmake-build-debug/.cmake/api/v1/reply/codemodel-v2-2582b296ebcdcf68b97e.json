@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "Project",
+					"name" : "steger",
 					"targetIndexes" : 
 					[
 						0
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "steger::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-steger-Debug-0c4ee9768fd1aaa5ec29.json",
+					"jsonFile" : "target-steger-Debug-c2d5b46ba11c9038097e.json",
 					"name" : "steger",
 					"projectIndex" : 0
 				}

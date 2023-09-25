@@ -4,16 +4,14 @@
 #include <opencv2/imgproc.hpp>
 #include <fstream>
 #include <ctime>
-
 using namespace std;
 using namespace cv;
-
 
 //steger光条中心提取
 class Steger
 {
 public:
-	Steger(const Mat img, double sigma, float thresh ,Size  kernel_size);
+	Steger(const Mat img, double sigma, float thresh ,Si1ze  kernel_size);
 	void  GetCenterPoint(vector<Scalar> &vec);
 	void  SetGaussParam(float thresh, float sigma);
 private:
@@ -86,11 +84,11 @@ void Steger::AcquireScalarVec(vector<Scalar> &vec) {
 	}
 }
 
+#if 1
 int main() {
 
-
-	cv::Mat srcImg = imread("../test1.png",0);// original img
-	cv::Mat dstImg = imread("../test1.png");// the img that we draw circle on
+	cv::Mat srcImg = imread("../test3.png",0);// original img
+	cv::Mat dstImg = imread("../test3.png");// the img that we draw circle on
     cout<<srcImg.size()<<endl;
 //	Size kernel(17, 17);
     Size kernel(17, 17);
@@ -102,7 +100,7 @@ int main() {
     cv::imshow("tt", srcImg);
     cv::waitKey(0);
 //	Steger s(srcImg, 3, 20, kernel);
-    Steger s(srcImg, 3, 190, kernel);
+    Steger s(srcImg, 3, 20, kernel);
 	std::vector<Scalar> vec;
 	s.GetCenterPoint(vec);
 
@@ -114,15 +112,12 @@ int main() {
 		lightdata << it->val[0] << " " << it->val[1] << endl;;
 
 
-		cv::circle(dstImg, cv::Point(it->val[0], it->val[1]), 1, cv::Scalar(255, 0, 255), 1, 8);
+		cv::circle(dstImg, cv::Point(it->val[0], it->val[1]), 1, cv::Scalar(255, 255, 0), 1, 8);
 	}
     imwrite("../output.jpg", dstImg);
 	cv::namedWindow("test", 0);
-
 	cv::imshow("test", dstImg);
-
 	cv::waitKey(0);
-
-
 	return 0;
 }
+#endif

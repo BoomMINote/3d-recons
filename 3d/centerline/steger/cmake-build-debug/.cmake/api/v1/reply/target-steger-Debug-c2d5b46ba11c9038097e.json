@@ -12,11 +12,15 @@
 		[
 			"add_executable",
 			"target_link_libraries",
+			"set_property",
+			"find_package",
 			"include_directories"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"CMakeLists.txt",
+			"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindThreads.cmake",
+			"/snap/clion/250/bin/cmake/linux/x64/share/cmake-3.26/Modules/FindCUDA.cmake"
 		],
 		"nodes" : 
 		[
@@ -26,19 +30,45 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 9,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
-				"line" : 4,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"file" : 2,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 1049,
+				"parent" : 4
+			},
+			{
+				"file" : 1,
+				"parent" : 5
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 238,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 8,
 				"parent" : 0
 			}
 		]
@@ -55,7 +85,7 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/usr/local/include/opencv"
 				}
@@ -131,6 +161,21 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libcudart_static.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/librt.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "/usr/local/lib/libopencv_calib3d.so.3.4.11",
 				"role" : "libraries"
 			},
@@ -172,6 +217,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "/usr/local/lib/libopencv_core.so.3.4.11",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-lpthread",
 				"role" : "libraries"
 			}
 		],
